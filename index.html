@@ -9,8 +9,14 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="frow header">
-      Tom's Daily Planner
+  <div class="text-center header">
+    <div>  
+      <h1>Tom's Daily Planner</h1>
+    </div>
+    <div id="current-date">
+    </div>
+    <div id="current-time">
+    </div>
   </div>
   <div class="content">
     <div class="frow row-center nowrap gutters top-border">
@@ -25,7 +31,7 @@
         </div>
       </div>
       <div class="col-md-1-12">
-        <div class=" save-buttons">
+        <div class="save-buttons">
           Save
         </div>
       </div>
@@ -166,10 +172,10 @@
           </div>
         </div>
       </div> 
-      <div class="frow row-center nowrap gutters main-border">
+      <div id="nine-hour" class="frow row-center nowrap gutters main-border">
         <div class="col-md-1-12">
           <div class="daily-times">
-            5PM:
+            9PM:
           </div>
         </div>
         <div class="col-md-10-12">
@@ -184,5 +190,6 @@
         </div>
       </div>                 
   </div>
+  <script src="./app.js"></script>
 </body>
 </html>
