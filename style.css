@@ -10,7 +10,10 @@ html, body {
   font-family: sans-serif;
 }
 
-
+input {
+  transition: background-color 0.4s;
+  color: white;
+}
 
 .top-border {
   border-bottom: 5px solid black;
@@ -29,6 +32,7 @@ html, body {
 .text-notes :hover {
   background-color: rgb(138, 215, 218);
 }
+
 
 
 
