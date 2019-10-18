@@ -6,10 +6,10 @@ let now = '';
 
 function checkTime() {
   let currentTime = moment().format('h:mm a');
-  $('#current-time').text(`It is: ${currentTime}`);
+  $('#current-time').text(`${currentTime}`);
   if (now !== moment().format('H')) {
     let currentDate = moment().format('MMM Do YYYY');
-    $('#current-date').text(`Today is: ${currentDate}`);
+    $('#current-date').text(`${currentDate}`);
 
     now = parseInt(moment().format('H'));
     let inputTime = $('input');

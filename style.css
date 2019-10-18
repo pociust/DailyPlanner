@@ -13,26 +13,33 @@ html, body {
 input {
   transition: background-color 0.4s;
   color: black;
-}
-
-.top-border {
-  border-bottom: 5px solid black;
-  margin: 10px 0;
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 17px;
 }
 
 .main-border {
-  border-bottom: 1px solid black;
-  margin: 3px 0;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  padding: 5px 0;
+}
+
+.main-border:last-child {
+  border: 0;
 }
 
 .daily-times {
-  margin-left: 15px;
+  color: #333;
 }
 
 .text-notes :hover {
   background-color: rgb(138, 215, 218);
 }
 
+.save-buttons {
+  background-color: rgb(233, 233, 233);
+  border-color: rgb(233, 233, 233);
+  color: #333;
+}
 
 
 
