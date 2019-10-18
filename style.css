@@ -12,7 +12,7 @@ html, body {
 
 input {
   transition: background-color 0.4s;
-  color: white;
+  color: black;
 }
 
 .top-border {

@@ -11,7 +11,7 @@ function checkTime() {
     let currentDate = moment().format('MMM Do YYYY');
     $('#current-date').text(`Today is: ${currentDate}`);
 
-    now = 13;
+    now = parseInt(moment().format('H'));
     let inputTime = $('input');
     idTime = '';
     
@@ -19,11 +19,11 @@ function checkTime() {
       let idTime = inputTime[i].id 
       idTime = parseInt(idTime);
       if (now > idTime) {
-        $(`#${inputTime[i].id}`).attr('style', 'background-color:#fc0341');
+        $(`#${inputTime[i].id}`).attr('style', 'background-color:#f1c7db');
       } else if (now < idTime) {
-        $(`#${inputTime[i].id}`).attr('style', 'background-color:#03f4fc');
+        $(`#${inputTime[i].id}`).attr('style', 'background-color:#9ecef0');
       } else if (now === idTime) {
-        $(`#${inputTime[i].id}`).attr('style', 'background-color:#03fc77');
+        $(`#${inputTime[i].id}`).attr('style', 'background-color:#b7e1ce');
       }
     };
   }
@@ -33,9 +33,9 @@ function alertMessage () {
   
   
   let setAlert = '50 0';
-  let nextReminderTime =   moment().add(1,'h').format('h');
+  let nextReminderTime =   moment().add(1,'H').format('H');
   let nextReminderId = $(`#${nextReminderTime}`);
-  if ((moment().format('h') > 9 || moment().format('h') < 18) && (moment().format('m s') === setAlert)) {
+  if ((moment().format('H') > 9 || moment().format('H') < 18) && (moment().format('m s') === setAlert)) {
       alert(`10 min reminder to ${nextReminderId[0].value}`);
   }
 
@@ -52,62 +52,17 @@ $('.save-buttons').click(function () {
 
 // console.log(localStorage);
 
-// function getNotes () {
-  
-//   // let enterNotes = JSON.stringify(localStorage);
+function getNotes () {
+  for(i = 9; i < 18; i++){
+    if (localStorage.getItem(i)) {
+      $(`.js-${i}-${i <= 12 ? 'am' : 'pm'}`).val(localStorage.getItem(i));
+    }
+  }
+};
 
-//   // for(i = 9; i < 18; i++){
-//   //   console.log(localStorage.getItem(Storage.key(i)));
-
-//   // }
-//   // for(i=13; i < 18; i++){
-//   //   if (localStorage.getItem(`$[i]-pm`)) {
-//   //     $(`.js-${i}-am`).val(`${localStorage.getItem(`[i]-pm`)}`);
-//   //   }
-//   // }
-// };
-// getNotes();
+getNotes();
 
 
-
-
-
-  if (localStorage.getItem('9')) {
-    $('.js-9-am').val(`${localStorage.getItem('9')}`);
-  }
-  if (localStorage.getItem('10')) {
-    $('.js-10-am').val(`${localStorage.getItem('10')}`);
-  }
-  if (localStorage.getItem('11')) {
-    $('.js-11-am').val(`${localStorage.getItem('11')}`);
-  }
-  if (localStorage.getItem('12')) {
-    $('.js-12-am').val(`${localStorage.getItem('12')}`);
-  }
-  if (localStorage.getItem('13')) {
-    $('.js-13-pm').val(`${localStorage.getItem('13')}`);
-  }
-  if (localStorage.getItem('14')) {
-    $('.js-14-pm').val(`${localStorage.getItem('14')}`);
-  }
-  if (localStorage.getItem('15')) {
-    $('.js-15-pm').val(`${localStorage.getItem('15')}`);
-  }
-  if (localStorage.getItem('16')) {
-    $('.js-16-pm').val(`${localStorage.getItem('16')}`);
-  }
-  if (localStorage.getItem('17')) {
-    $('.js-17-pm').val(`${localStorage.getItem('17')}`);
-  }
 
 checkTime();
 setInterval(function(){checkTime(), alertMessage()}, 1000);
-
-  
-
-
-//events
-//inits: 
-//check local storage object for matching id
-//grab current date and put on html
-//color code past/present and future
